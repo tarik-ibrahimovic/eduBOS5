@@ -23,7 +23,7 @@ Both static (Formal) and dynamic (Functional) methods are used to verify **eduBO
 During development, hand-written assembly tests, functional simulation, and waveform analysis are utilized to verify each individual instruction and instruction type. Once the core is complete, it will undergo standard compliance testing using [riscv-tests](https://github.com/riscv-software-src/riscv-tests). 
 Finally, formal verification will be conducted using [RISC-V Formal tests](https://github.com/YosysHQ/riscv-formal) to conclude the verification process.
 
-## Current and Target performance and size
+## Current/Target performance and size
 
 At the time, **eduBOS5** is RV32I compliant excluding Zicsr and misaligned data access and runs bare-metal C while using approx. 900 Gowin LUTs .  
 
