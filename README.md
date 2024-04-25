@@ -1,10 +1,13 @@
 # eduBOS5
-A compact, configurable RISC-V core
-## Design characteristics 
-The CPU is a single cycle full user-level RV32I RISC-V ISA implementation. What stands out is a relatively short 2-cycle execution pipeline, which can be configured to a 3-cycle alternative. Neat SystemVerilog-2017 code allows for easy customization and leads to effortless understanding of the RTL. This feature is the reason why education will be a major goal in this endeavor.
+A compact, configurable RISC-V CPU core targeting FPGAs. 
 
 
-Space for improvement is an important consideration while building this core, enhancements and features are in sight since day one:
+This project includes a complete, pre-configured toolchain and workflow for deploying custom hardware and software to the previously mentioned RISC-V core aimed at Gowin FPGAs. While FPGA synthesis and place-and-route are conducted using Gowin's proprietary tools, verification is powered by open-source tools. The source files are not public yet, therefore the build steps are not included.
+## Design overview
+**eduBOS5** is a single-cycle, optional Machine privilege mode, RV32I RISC-V ISA implementation. Setting it apart is a relatively short 2-cycle execution pipeline, which can be configured to a 3-cycle alternative with a greater Fmax. The CPU is written in clean SystemVerilog-2017, making use of language features that enhance readability and simplify debugging.
+
+
+Space for improvement is an important consideration while building this core, while currentlly no Zicsr is deployed and the CPU runs bare-metal, following features are currently being developed:
 - Superscalar implementation
 - Instruction & data prefetch 
 - Branch prediction
@@ -13,18 +16,21 @@ Space for improvement is an important consideration while building this core, en
 - CPU emulation support 
 
 
-Until the CPU is finalized, here is a teaser block diagram representing the design concept.
-![eduBOS5 RISC-V block diagram](edubos5sizeopt.png)
+Until the CPU is finalized, below is a preview block diagram representing the conceptual design.
+![eduBOS5 RISC-V block diagram](/0.doc/cpu_top_view.png)
 ## Verification strategy
+Both static (Formal) and dynamic (Functional) methods are used to verify **eduBOS5** RISC-V compliance, utilizing open-source [SymbiYosys](https://github.com/YosysHQ/sby) and [Verilator](https://github.com/verilator/verilator). Verilator testbench is written in SystemVerilog with a supporting C++ backend.
+While developing, hand-written assembly tests in combination with functional simulation and observing waveforms, are used to verify every inidividual instruction and instruction type. After the core is finished, it will undergo standard compliance testing using [riscv-tests](https://github.com/riscv-software-src/riscv-tests). 
+To top it off, formal verification with [RISC-V Formal tests](https://github.com/YosysHQ/riscv-formal) will be conducted.
 
-While developing, small, hand-written tests in combination with observing waveforms, are used to verify every inidividual instruction and instruction type. After the core is finished, it will undergo standard testing using [riscv-tests](https://github.com/riscv-software-src/riscv-tests) as the main validation tool. 
-Following that, formal verification using open source [SymbiYosys](https://github.com/YosysHQ/sby) will be conducted, trying to eliminate chances for error.
+## Current and Target performance and size
 
-## Target performance and size
+At the time, **eduBOS5** is RV32I compliant excluding Zicsr and misaligned data access and runs bare-metal C while using approx. 900 Gowin LUTs .  
+
 The intent is to have a small, yet capable core. Main development platform is the Gowin LittleBee FPGA family, handing in utilization and performance figures of:
 - CPI 2/3
 - < 1000 Gowin LUTs
 - < 100  FFs
+- 80 MHz Fmax
 
-
-An initial working version will undergo a series of custom performance comparison tests, along with standard benchmarks such as Dhrystone, to assess its performance.
+An initial working version will undergo a series of custom performance comparison tests, along with standard benchmarks such as Dhrystone, to assess its performance. 

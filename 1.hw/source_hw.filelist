@@ -1,0 +1,24 @@
+#==========================================================================
+# List of file to make 'lab_11.sv' design module
+#   DeviceName= "GW1NR-9C"
+#   PN        = "GW1NR-LV9QN88C6/I5"
+#==========================================================================
+
+#---PACKAGES
+${HW_ROOT_DIR}/edubos5_pkg.sv
+
+#---CPU
+${HW_ROOT_DIR}/MEM.sv
+${HW_ROOT_DIR}/edubos5.sv
+
+
+#---TOP
+${HW_ROOT_DIR}/lab_11.sv
+
+#---Constraints
+#${HW_ROOT_DIR}/constraints/top.pinout.cst
+#${HW_ROOT_DIR}/constraints/top.timing.sdc
+
+#==========================================================================
+# End-of-File
+#==========================================================================
