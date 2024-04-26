@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="255.01791mm"
-   height="196.47188mm"
-   viewBox="0 0 255.01791 196.47188"
+   width="231.46255mm"
+   height="178.32428mm"
+   viewBox="0 0 231.46255 178.32428"
    version="1.1"
    id="svg879"
    sodipodi:docname="cpu_top_view.svg"
@@ -36,7 +36,7 @@
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer5" />
+     inkscape:current-layer="layer4" />
   <defs
      id="defs876">
     <pattern
@@ -204,7 +204,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-22.558641,-6.3899035)">
+     transform="translate(-22.558648,-6.3899035)">
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40113px;font-family:Bahnschrift;-inkscape-font-specification:'Bahnschrift, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
@@ -236,7 +236,7 @@
      inkscape:groupmode="layer"
      id="layer4"
      inkscape:label="Layer 2"
-     transform="translate(-22.558641,-6.3899035)">
+     transform="translate(-22.558648,-6.3899035)">
     <g
        id="g14480"
        transform="matrix(0.84392853,0,0,0.84392853,9.6369032,38.329043)">
@@ -333,7 +333,7 @@
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.27776px;font-family:Bahnschrift;-inkscape-font-specification:'Bahnschrift, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
          x="51.566589"
-         y="139.63924"
+         y="139.63925"
          id="tspan17603-6">next_pc</tspan></text>
     <text
        xml:space="preserve"
@@ -350,7 +350,7 @@
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.27776px;font-family:Bahnschrift;-inkscape-font-specification:'Bahnschrift, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
          x="-82.589211"
-         y="86.156624"
+         y="86.156616"
          id="tspan17603-6-3">instr</tspan></text>
     <text
        xml:space="preserve"
@@ -384,7 +384,7 @@
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.81277px;font-family:Bahnschrift;-inkscape-font-specification:'Bahnschrift, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
          x="-49.176403"
-         y="178.12144"
+         y="178.12146"
          id="tspan17603-6-3-6-6">dmem_wdat [31:0]</tspan></text>
     <text
        xml:space="preserve"
@@ -401,7 +401,7 @@
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.81277px;font-family:Bahnschrift;-inkscape-font-specification:'Bahnschrift, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
          x="-49.26083"
-         y="173.05338"
+         y="173.05339"
          id="tspan17603-6-3-6-6-5">dmem_we     [3:0]</tspan></text>
     <text
        xml:space="preserve"
@@ -435,7 +435,7 @@
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.81277px;font-family:Bahnschrift;-inkscape-font-specification:'Bahnschrift, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
          x="-49.069023"
-         y="185.6834"
+         y="185.68341"
          id="tspan17603-6-3-6-6-3">dmem_addr [31:0]</tspan></text>
     <text
        xml:space="preserve"
@@ -469,7 +469,7 @@
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.72256px;font-family:Bahnschrift;-inkscape-font-specification:'Bahnschrift, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
          x="-38.534626"
-         y="25.342722"
+         y="25.342724"
          id="tspan17603-6-3-6-2-7">clk and reset</tspan></text>
     <path
        style="fill:#815f5f;fill-opacity:1;stroke:#815f5f;stroke-width:1.07552;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
@@ -820,7 +820,7 @@
   </g>
   <g
      id="g49561"
-     transform="matrix(1.2086269,0,0,1.2086269,-27.26498,-7.7230085)">
+     transform="matrix(1.2086269,0,0,1.2086269,-27.264987,-7.7230085)">
     <path
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.592306;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
        d="m 76.021943,31.171737 v 46.557357 h 2.981768"
