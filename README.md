@@ -8,6 +8,7 @@ This project includes a complete, pre-configured toolchain and workflow for depl
 
 
 Space for improvement is an important consideration while building this core, while no Zicsr is deployed at the time and the CPU runs bare-metal, following features are currently being developed:
+- Misaligned data access using software traps
 - Superscalar implementation
 - Instruction & data prefetch 
 - Branch prediction
