@@ -7,7 +7,7 @@ This project includes a complete, pre-configured toolchain and workflow for depl
 **eduBOS5** is a single-cycle, optional Machine privilege mode, RV32I RISC-V ISA implementation. Setting it apart is a relatively short 2-cycle execution pipeline, which can be configured to a 3-cycle alternative for a higher Fmax. The CPU is written in clean SystemVerilog-2017, making use of language features that enhance readability and simplify debugging.
 
 
-Space for improvement is an important consideration while building this core, while currentlly no Zicsr is deployed and the CPU runs bare-metal, following features are currently being developed:
+Space for improvement is an important consideration while building this core, while no Zicsr is deployed at the time and the CPU runs bare-metal, following features are currently being developed:
 - Superscalar implementation
 - Instruction & data prefetch 
 - Branch prediction
