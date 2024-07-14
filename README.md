@@ -18,7 +18,7 @@ Space for improvement is an important consideration while building this core, wh
 
 
 Until the CPU is finalized, below is a preview block diagram representing the conceptual design.
-![eduBOS5 RISC-V block diagram](/0.doc/cpu_top_view.png)
+![eduBOS5 RISC-V block diagram](/0.doc/cpu_top_view_V2.png)
 ## Verification strategy
 Both static (Formal) and dynamic (Functional) methods are used to verify **eduBOS5** RISC-V compliance, utilizing open-source [SymbiYosys](https://github.com/YosysHQ/sby) and [Verilator](https://github.com/verilator/verilator). Verilator testbench is written in SystemVerilog with a supporting C++ backend.
 During development, hand-written assembly tests, functional simulation, and waveform analysis are utilized to verify each individual instruction and instruction type. Once the core is complete, it will undergo standard compliance testing using [riscv-tests](https://github.com/riscv-software-src/riscv-tests). 
