@@ -36,15 +36,22 @@ At the time, **eduBOS5** is RV32I compliant excluding Zicsr and misaligned data 
 
 Main development platform is the Gowin LittleBee and Arora FPGA family, in general, handing in utilization and performance figures of:
 - **CPI 2/3**
-- **~ 1000 Gowin LUTs**
-- **~ 400  FFs**
+- ~**1000 Gowin LUTs**
+- ~**400  FFs**
 - **80-100 MHz Fmax**
-### Performance comparison with different CPUs
+### Performance evaluation and comparison
 Dhrystone yielded in **0.39 DMIPS/MHz**, **2.56 CPI**, combined with a significant Fmax **eduBOS5** is no short of performance, especially when comparing to base version of [PicoRV2](https://github.com/YosysHQ/picorv32) as a referent design. 
+
 ![eduBOS5 RISC-V block diagram](/0.doc/dhry.png)
+
+Assessing performance beyond synthetic tests, computing the Mandelbrot set and comparing times with **PicoRV32** is presented below.
+
+![eduBOS5 RISC-V block diagram](/0.doc/dhrystone.gif)
+
 
 ### Performance/Power/Area table across FPGAs
 Numbers listed are acquired using a minimal SOC, featuring an UART, memory, LEDs and user buttons. Although not shown in this table, **eduBOS5** is frequency resilient to adding more peripherals while PicoRV32 hasn't expressed same properties. Base **PicoRV32** is used for comparison as both fall into the same size/area category. In this configuraton, **eduBOS5** needs some optimizations (DSP_ALU) to achieve same Fmax as **PicoRV32**, but nevertheless outperforms it in it's LUT-only version with it's much shorter pipeline.
+
 ![eduBOS5 RISC-V block diagram](/0.doc/performance_table.png)
 
 
