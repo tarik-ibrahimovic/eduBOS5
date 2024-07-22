@@ -46,7 +46,7 @@ Dhrystone yielded in **0.39 DMIPS/MHz**, **2.56 CPI**, combined with a significa
 
 Assessing performance beyond synthetic tests, computing the Mandelbrot set and comparing times with **PicoRV32** is presented below.
 
-<img src="0.doc/dhrystone.gif" width="1280" height="720" alt="Description of the GIF">
+<img src="0.doc/dhrystone.gif" width="720" height="420" alt="Description of the GIF">
 
 
 ### Performance/Power/Area table across FPGAs
