@@ -10,35 +10,41 @@
 // dissemination to all third parties; and (3) shall use the same for operation
 // and maintenance purposes only.
 //-----------------------------------------------------------------------------
-// eduBOS5 register file, reset handled in software
-// 2 asynchronous read ports, 1 synchronous write port
+// Description:
+//   eduBOS5 register file: 1 Synchronous Write + 2 Asynch Read ports.
+//   Reset are handled in software
 //==========================================================================
 module edubos5_rf
-    import edubos5_pkg::*;
+   import edubos5_pkg::*;
 (
-    input logic clk,
-    input logic [4:0] rs1_addr,
-    input logic [4:0] rs2_addr,
-    input logic [4:0] rd_addr,
-    input logic rf_we,
-    input cpu_data_t rf_wdat,
+   input logic        clk,
+   input logic [4:0]  rf_addr,
+   input logic        rf_we,
+   input cpu_data_t   rf_wdat,
+    
+   input logic [4:0]  rs1_addr,
+   input logic [4:0]  rs2_addr,
 
-    output cpu_data_t rs1,
-    output cpu_data_t rs2
+   output cpu_data_t  rs1,
+   output cpu_data_t  rs2
 );
 
-cpu_data_t rf [32] /* synthesis syn_ramstyle = "distributed_ram" */;
+   // RF storage element 
+   cpu_data_t rf [32] /* synthesis syn_ramstyle = "distributed_ram" */;
 
-assign rs1 = rf[rs1_addr];       
-assign rs2 = rf[rs2_addr];
-
-always_ff @(posedge clk) begin : rf_writeback
-    if (rf_we == HI) begin
-       rf[rd_addr] <= rf_wdat; // one write port
-    end
-end : rf_writeback
+   // one Sync Write port
+   always_ff @(posedge clk) begin : rf_writeback
+      if (rf_we == HI) begin
+         rf[rf_addr] <= rf_wdat; 
+      end
+   end : rf_writeback
+    
+   // two Async Read ports
+   assign rs1 = rf[rs1_addr];       
+   assign rs2 = rf[rs2_addr];
 
 endmodule: edubos5_rf
+
 /*
 -----------------------------------------------------------------------------
 Version History:
