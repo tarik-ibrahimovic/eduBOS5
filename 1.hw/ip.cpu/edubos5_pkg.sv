@@ -20,8 +20,8 @@ package edubos5_pkg;
    typedef enum logic {LO = 1'b0, HI = 1'b1} bin_t;
 
    typedef logic [31:0] cpu_data_t;
+   typedef logic [31:0] cpu_addr_t; // CPU address type. 2LSBs are for byte-select
    typedef logic [31:2] cpu_pc_t;   // program counter for up to 4GByte code space in 4-byte words
-   typedef logic [31:0] cpu_addr_t; // CPU address type, 2048 locations for now, 2LSB for byte-select
    
    //instruction opcodes 
    typedef enum logic [6:0] {
