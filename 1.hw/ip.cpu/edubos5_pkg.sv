@@ -11,7 +11,7 @@
 // and maintenance purposes only.
 //-----------------------------------------------------------------------------
 // Description: 
-//  Common declarations used within eduBos5 processor design
+//   Common declarations used within eduBOS5 design
 //==========================================================================
 
 package edubos5_pkg;
@@ -23,7 +23,7 @@ package edubos5_pkg;
    typedef logic [31:2] cpu_pc_t;   // program counter for up to 4GByte code space in 4-byte words
    typedef logic [31:0] cpu_addr_t; // CPU address type, 2048 locations for now, 2LSB for byte-select
    
-   //instruction opcode with corresponding decode
+   //instruction opcodes 
    typedef enum logic [6:0] {
       ALUREG = 7'b0110011,    //-\ ALU Data
       ALUIMM = 7'b0010011,    //-/ instructions 
@@ -42,6 +42,7 @@ package edubos5_pkg;
       SYSTEM = 7'b1110011     //- special
    } opcode_t;
 
+   //instruction decode (one-hot)
    typedef struct packed {
       logic ALUREG;           //[10]
       logic ALUIMM;           //[9]
@@ -81,6 +82,7 @@ package edubos5_pkg;
       BLTU    = 3'b110,
       BGEU    = 3'b111
    } funct3_brnch_t;
+   
    //funct3 types for LOAD instructions
    typedef enum logic [2:0] {
       LB      = 3'b000,
@@ -89,13 +91,15 @@ package edubos5_pkg;
       LBU     = 3'b100,
       LHU     = 3'b101
    } funct3_load_t;
+   
    //funct3 types for STORE instructions
    typedef enum logic [2:0]{
       SB      = 3'b000,
       SH      = 3'b001,
       SW      = 3'b010
    } funct3_store_t;
-   //Write-enable, byte select
+   
+   //write-enable, byte select
    typedef enum logic [3:0]{
       NOWR      = 4'b0000,
       BYTE1     = 4'b0001,
@@ -106,13 +110,15 @@ package edubos5_pkg;
       HALFWORD2 = 4'b1100,
       WORD      = 4'b1111
    } we_bs_t;
+   
    //funct7 types 
    typedef enum logic [6:0]{
       SEL_FIRST  = 7'b000_0000, //default, or selects first (ADD_SUB ADD would be selected)
       SEL_SECOND = 7'b010_0000
    } funct7_t;                //only ALUREG and ALUIMM instr
+   
    //shared func3 fields differentiated in grp_imm_t
-   // 6 instruction type groups (part that's selected by opcode)
+   // 6 instruction type groups (part selected by opcode)
    typedef struct packed {
       funct7_t      func7;    // [31:25]
       logic [4:0]   rs2;      // [24:20]
@@ -122,24 +128,24 @@ package edubos5_pkg;
    } grp_reg2reg_t;            
                                
    typedef struct packed {     
-      logic [11:0]  imm11_0;     // [31:20]
-      logic [4:0]   rs1;         // [19:15] 
-      funct3_load_t func3;       // [14:12]
-      logic [4:0]   rd;          // [11:7]
-   } grp_imm_t;     // for LOAD instruction
+      logic [11:0]  imm11_0;  // [31:20]
+      logic [4:0]   rs1;      // [19:15] 
+      funct3_load_t func3;    // [14:12]
+      logic [4:0]   rd;       // [11:7]
+   } grp_imm_t;               // for LOAD instruction
 
    typedef struct packed {
       logic [31:12] imm31_12; // [31:12]
       logic [4:0]   rd;       // [11:7]
-   } grp_uimm_t;    // for LUI instruction
+   } grp_uimm_t;              // for LUI instruction
 
    typedef struct packed {
-      logic [11:5]   imm11_5;  // [31:25] 
-      logic [4:0]    rs2;      // [24:20]
-      logic [4:0]    rs1;      // [19:15]
-      funct3_store_t func3;    // [14:12]
-      logic [4:0]    imm4_0;   // [11:7]
-   } grp_store_t;    // for STORE instruction
+      logic [11:5]   imm11_5; // [31:25] 
+      logic [4:0]    rs2;     // [24:20]
+      logic [4:0]    rs1;     // [19:15]
+      funct3_store_t func3;   // [14:12]
+      logic [4:0]    imm4_0;  // [11:7]
+   } grp_store_t;             // for STORE instruction
 
    typedef struct packed {
       logic          imm12;   // [31]
@@ -149,7 +155,7 @@ package edubos5_pkg;
       funct3_brnch_t func3;   // [14:12]
       logic [4:1]    imm4_1;  // [11:8]
       logic          imm11;   // [7]
-   } grp_brnch_t;    // for BRANCH instruction
+   } grp_brnch_t;             // for BRANCH instruction
 
    typedef struct packed {
       logic         imm20;    // [31]
@@ -157,7 +163,7 @@ package edubos5_pkg;
       logic         imm11;    // [20]
       logic [19:12] imm19_12; // [19:12]
       logic [4:0]   rd;       // [11:7]
-   } grp_jump_t;    // for JUMP instruction
+   } grp_jump_t;              // for JUMP instruction
 
    //union declaration for variable parts of instruction, [31:7]
    typedef union packed {
@@ -172,17 +178,17 @@ package edubos5_pkg;
    //complete instruction contains invariable opcode 
    //  and opcode-dependent, variable parts
    typedef struct packed {        
-      grp_t         grp;      //[31:7]
-      opcode_t      opcode;   //[6:0]
+      grp_t         grp;      //[31:7] variable, opcode-dependent
+      opcode_t      opcode;   //[6:0]  invariable
    } instr_t;   
 
-   integer i ;
-   //neccessary for the ALU shifts
-   function [31:0] flip32;
-         input [31:0] x;
-         for(i = 0; i < 32 ; i = i + 1) begin
-            flip32 [i] = x [31 - i];
-         end
+   // flip bits in a 32-bit word
+   function [31:0] flip32 (
+      input [31:0] x
+   );
+      for (int i = 0; i < 32 ; i++) begin
+         flip32 [i] = x [31 - i];
+      end
    endfunction
       
 endpackage: edubos5_pkg
