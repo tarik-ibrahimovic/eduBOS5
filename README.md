@@ -26,7 +26,7 @@ Our other customization options are:
 - Superscalar execution
 - Hardware handling of misaligned data access (as opposed to standard software traps).
 
-Stock/basic eduBOS5 is primarily intended for deeply-embedded, bare-metal (aka self-standing) apps. FreeRTOS support and everything that comes with it is an add-on option. 
+Stock/basic eduBOS5 is primarily intended for deeply-embedded, bare-metal (aka non-hosted / freestanding) apps. However, FreeRTOS support and everything that comes with it is an add-on option. 
 
 ### Block diagram
 eduBOS5 is designed around Harward-based architecture, with separate busses for Instruction and Data Memory. The following diagram conceptually shows its internal datapaths, but it does not include all pipeline registers, which are carefully placed to maximize operating frequency.
@@ -74,6 +74,6 @@ These metrics are acquired using a minimal SOC, featuring only an UART, memory, 
 
 We used basic **PicoRV32** variant for this comparison, which is on par with basic eduBOS5. By throwing in a few optimizations (such as DSP_ALU), eduBOS5 may achieve the same Fmax as PicoRV32. 
 
-In any case, thanks to its much shorter pipeline, eduBOS5 consistently outperforms PicoRV32, even in its simplest LUT-only configuration. We can conclude that the basic eduBOS5 is on par with AVR ATmega328P.
+In any case, thanks to its much shorter pipeline, eduBOS5 consistently outperforms PicoRV32, even in its simplest LUT-only ALU configuration. We can conclude that the basic eduBOS5 is on par with AVR ATmega328P.
 
 #### End-of-Document
