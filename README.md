@@ -58,7 +58,7 @@ Executive Summary performance and utilization metrics are as follows:
   
 ### Performance evaluation and comparison
 
-[PicoRV2](https://github.com/YosysHQ/picorv32) in the stock configuration (w/o any add-on bells and whisles) is the primary target of this comparison. 
+[PicoRV32](https://github.com/YosysHQ/picorv32) in the stock configuration (w/o any add-on bells and whisles) is the primary target of this comparison. 
 
 ![eduBOS5 RISC-V block diagram](/0.doc/dhryv1.png)
 
