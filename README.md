@@ -10,10 +10,10 @@ Given that eduBOS5 RTL is not in the open-source domain, the build steps are not
 ## Design overview
 **eduBOS5** is single-threaded (1 hart = hardware thread) Machine Mode (M) privilege implementation of RV32I RISC-V ISA. The RTL is written in clean SystemVerilog-2017, making use of language features that enhance readability and simplify debugging. 
 
-It is an unusually short execution pipeline of only 2-cycles that sets eduBOS5 apart. The 3-cycle pipeline option is also provided. When used in combination with MCPs, the 3-cycle pipeline offers operating frequency boost. The Gowin variants also include option for constructing ALU from DSP HMs. That brings about at least 30MHz Fmax add-on compared to the stock, LUT-based ALU implementation. 
+The unusually short `execution pipeline of only 2-cycles` is what sets eduBOS5 apart. A 3-cycle pipeline option is also provided. When used in combination with MCPs, this option yields higher Fmax. Gowin variants also include option for constructing ALU from DSP HMs. That brings another (at least 30MHz) Fmax boost compared to the stock, LUT-based ALU implementation. 
 
 Simulation is another major differentor. We provide two options there:
-- Cycle-accurate, all RTL testbench
+- Cycle-accurate, all-RTL testbench
 - Fast, ISS-based HW/SW co-sim, by tapping into [Vproc](https://github.com/wyvernSemi/vproc) technology.
 
 Our other customization options are:
@@ -24,31 +24,31 @@ Our other customization options are:
 - Zicsr + Machine Registers = FreeRTOS support
 - Multi-Threading (MT)
 - Superscalar execution
-- Hardware handling of misaligned data access (as opposed to standard software traps).
+- Hardware handling of misaligned data access (as opposed to software traps).
 
 Stock/basic eduBOS5 is primarily intended for deeply-embedded, bare-metal (aka non-hosted / freestanding) apps. However, FreeRTOS support and everything that comes with it is an add-on option. 
 
 ### Block diagram
-eduBOS5 is designed around Harward-based architecture, with separate busses for Instruction and Data Memory. The following diagram conceptually shows its internal datapaths, but it does not include all pipeline registers, which are carefully placed to maximize operating frequency.
+eduBOS5 is designed around Harward-based architecture, with separate buses for Instruction and Data Memory. The diagram below illustrates the concept. Please note that this diagram does not show all detail, and esp. not the pipeline registers that are carefully placed to maximize operating frequency.
 
 ![eduBOS5 RISC-V block diagram](/0.doc/cpu_top_view_V4.png)
 
 ## Verification strategy
 
-Both dynamic (Functional) and static (Formal) methods are tapped into for **eduBOS5** validation, utilizing open-source [Verilator](https://github.com/verilator/verilator) and [SymbiYosys](https://github.com/YosysHQ/sby) tool chains. Verilator testbench is written in SystemVerilog, with C++ backend.
+Both dynamic (Functional) and static (Formal) methods are put to use for **eduBOS5** validation, all based on open-source [Verilator](https://github.com/verilator/verilator) and [SymbiYosys](https://github.com/YosysHQ/sby) tool chains. Verilator testbench is written in SystemVerilog, with C++ backend.
 
-Hand-crafted tests in Assembly are used to verify each individual instruction, both on actual hardware, and in functional simulation with waveform analysis. RISC-V standard compliance software suite with [riscv-tests](https://github.com/riscv-software-src/riscv-tests) is checked off. Formal verification is based on [RISC-V Formal tests](https://github.com/YosysHQ/riscv-formal).
+Hand-crafted tests in Assembly are used to verify each individual instruction, both on actual hardware, and in functional simulation with waveform analysis. RISC-V standard compliance software suite with [riscv-tests](https://github.com/riscv-software-src/riscv-tests) is checked off. FV is based on [RISC-V Formal tests](https://github.com/YosysHQ/riscv-formal).
 
 ## Current/Target performance and size (WIP)
 
-**eduBOS5** design goal is to be a small, yet capable core. It is to form a foundation for custom hardware accelerators, tapping into both RISC-V user-defined instructions facility and classic co-processing techniques.
+**eduBOS5** design goal is to be a physically small and compact, yet unusually capable core. It is to form a foundation for custom hardware accelerators, tapping into both RISC-V user-defined instructions facility and classic co-processing techniques.
 
 We have benchmarked the following design variants:
-- Register File (RF) implemented in SSRAM distributed memory (LUTRAM) or BSRAM
-- ALU implemened in generic LUTs or DSP HM
-and also included desktop class, super-scalar Pentium and RPi processor for complete perspective.
+- Register File (RF) implemented in both Distributed SSRAM (aka LUTRAM) and Block BSRAM
+- ALU implemened in both generic LUTs and DSP HM
+For complete perspective, the comparison data also includes desktop class Pentium and RPi Pico processors.
 
-Baseline development platform is entry-level Gowin LittleBee and low/mid Arora FPGA family. 
+The baseline development platform are entry-level Gowin LittleBee and low/mid Arora FPGAs. 
 
 Executive Summary performance and utilization metrics are as follows:
 - **CPI = 2.56**
@@ -74,6 +74,6 @@ These metrics are acquired using a minimal SOC, featuring only an UART, memory, 
 
 We used basic **PicoRV32** variant for this comparison, which is on par with basic eduBOS5. By throwing in a few optimizations (such as DSP_ALU), eduBOS5 may achieve the same Fmax as PicoRV32. 
 
-In any case, thanks to its much shorter pipeline, eduBOS5 consistently outperforms PicoRV32, even in its simplest LUT-only ALU configuration. We can conclude that the basic eduBOS5 is on par with AVR ATmega328P.
+In any case, thanks to its much shorter pipeline, `eduBOS5 consistently outperforms PicoRV32`, even in its simplest LUT-only ALU configuration. We can conclude that the basic eduBOS5 is on par with AVR ATmega328P.
 
 #### End-of-Document
