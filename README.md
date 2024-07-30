@@ -31,7 +31,7 @@ Stock/basic eduBOS5 is primarily intended for deeply-embedded, bare-metal (aka n
 ### Block diagram
 eduBOS5 is designed around Harward-based architecture, with separate busses for Instruction and Data Memory. The following diagram conceptually shows its internal datapaths, but it does not include all pipeline registers, which are carefully placed to maximize operating frequency.
 
-![eduBOS5 RISC-V block diagram](/0.doc/cpu_top_view_V2.png)
+![eduBOS5 RISC-V block diagram](/0.doc/cpu_top_view_V4.png)
 
 ## Verification strategy
 
@@ -60,7 +60,7 @@ Executive Summary performance and utilization metrics are as follows:
 
 [PicoRV2](https://github.com/YosysHQ/picorv32) in the stock configuration (w/o any add-on bells and whisles) is the primary target of this comparison. 
 
-![eduBOS5 RISC-V block diagram](/0.doc/dhry.png)
+![eduBOS5 RISC-V block diagram](/0.doc/dhryv1.png)
 
 Here is a real-life use-case (computation of Mandelbrot fractals) for performance assessment beyond dry synthetic tests.
 
