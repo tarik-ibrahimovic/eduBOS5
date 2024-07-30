@@ -64,7 +64,7 @@ Executive Summary performance and utilization metrics are as follows:
 
 Here is a real-life use-case (computation of Mandelbrot fractals) for performance assessment beyond dry synthetic tests.
 
-<img src="0.doc/dhrystone.gif" width="720" height="420" alt="Description of the GIF">
+<img src="0.doc/dhrycenter.gif" width="720" height="420" alt="Description of the GIF">
 
 ### Performance/Power/Area table across FPGAs
 
