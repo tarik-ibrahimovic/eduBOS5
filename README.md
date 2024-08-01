@@ -34,7 +34,7 @@ eduBOS5 is designed around Harward-based architecture, with separate buses for I
 
 ![eduBOS5 RISC-V block diagram](/0.doc/cpu_top_view_V5.png)
 ### Processing Stages and Control FSM
-As mentioned the CPU features a configurable pipeline length. All instructions except LOAD type take 2 or 3 cycles to complete. Several configurations in terms of flop placement in between the stages are tested, all make the 2-stage the natural mode of operation for **eduBOS5**, whereas the 3-stage machine can be fully utilized to achieve higher Fmax by specifying timing constraints such as MCP.
+eduBOS5 comes with flexible pipeline length. In its stock configuration, all instructions except LOAD/STORE types take 2 cycles to complete. That's the primary and natural eduBOS5 configuration, carefully tested and tuned for area and performance. eduBOS5 can also be configured into a 3-stage machine for higher Fmax, by specifying timing exceptions such as MCP.
 
 ![eduBOS5 FSM](/0.doc/state_mach.png)
 ## Verification strategy
