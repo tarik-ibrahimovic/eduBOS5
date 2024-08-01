@@ -34,9 +34,10 @@ eduBOS5 is designed around Harvard-based architecture, with separate buses for I
 
 ![eduBOS5 RISC-V block diagram](/0.doc/cpu_top_view_V5.png)
 ### Processing Stages and Control FSM
-eduBOS5 comes with flexible pipeline length. In its stock configuration, all instructions except LOAD/STORE types take 2 cycles to complete. That's the primary and natural eduBOS5 configuration, carefully tested and tuned for area and performance. eduBOS5 can also be configured into a 3-stage machine for higher Fmax, by specifying timing exceptions such as MCP.
+eduBOS5 comes with flexible pipeline length. In its stock configuration, all instructions except LOAD/STORE types take 2 cycles to complete. That's the primary and natural eduBOS5 configuration, carefully tested and tuned for area and performance. eduBOS5 can also be configured into a 3-stage machine for higher Fmax, by specifying timing exceptions such as MCP. Fluid internal pipeline stages and control FSM accommodate latencies differencies accross all available combinations of implementation options.
 
 ![eduBOS5 FSM](/0.doc/state_mach.png)
+
 ## Verification strategy
 
 Both dynamic (Functional) and static (Formal) methods are put to use for **eduBOS5** validation, all based on open-source [Verilator](https://github.com/verilator/verilator) and [SymbiYosys](https://github.com/YosysHQ/sby) tool chains. Verilator testbench is written in SystemVerilog, with C++ backend.
