@@ -30,7 +30,7 @@ Our other customization options are:
 Stock/basic eduBOS5 is primarily intended for deeply-embedded, bare-metal (aka non-hosted / freestanding) apps. However, FreeRTOS support and everything that comes with it is an add-on option. 
 
 ### Block diagram
-eduBOS5 is designed around Harward-based architecture, with separate buses for Instruction and Data Memory. The diagram below illustrates the concept. Please note that this diagram does not show all detail, and esp. not the pipeline registers that are carefully placed to maximize operating frequency.
+eduBOS5 is designed around Harvard-based architecture, with separate buses for Instruction and Data Memory. The diagram below illustrates the concept. Please note that this diagram does not show all detail, and esp. not the pipeline registers that are carefully placed to maximize operating frequency.
 
 ![eduBOS5 RISC-V block diagram](/0.doc/cpu_top_view_V5.png)
 ### Processing Stages and Control FSM
