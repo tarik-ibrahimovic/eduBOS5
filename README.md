@@ -10,7 +10,7 @@ Given that eduBOS5 RTL is not in the open-source domain, the build steps are not
 ## Design overview
 **eduBOS5** is single-threaded (1 hart = hardware thread) Machine Mode (M) privilege implementation of RV32I RISC-V ISA. The RTL is written in clean SystemVerilog-2017, making use of language features that enhance readability and simplify debugging. 
 
- The unusually short `execution pipeline of only 2-cycles` is what sets eduBOS5 apart. A 3-cycle pipeline option is also provided. When used in combination with MCPs, this option yields higher Fmax. Gowin variants also include option for constructing ALU from DSP HMs. That brings another (at least 30MHz) Fmax boost compared to the stock, LUT-based ALU implementation. 
+The unusually short `execution pipeline of only 2-cycles` is what sets eduBOS5 apart. A 3-cycle pipeline option is also provided. When used in combination with MCPs, this option yields higher Fmax. Gowin variants also include option for constructing ALU from DSP HMs. That brings another (at least 30MHz) Fmax boost compared to the stock, LUT-based ALU implementation. 
 
 
 Simulation is another major differentor. We provide two options there:
@@ -30,13 +30,16 @@ Our other customization options are:
 Stock/basic eduBOS5 is primarily intended for deeply-embedded, bare-metal (aka non-hosted / freestanding) apps. However, FreeRTOS support and everything that comes with it is an add-on option. 
 
 ### Block diagram
-eduBOS5 is designed around Harward-based architecture, with separate buses for Instruction and Data Memory. The diagram below illustrates the concept. Please note that this diagram does not show all detail, and esp. not the pipeline registers that are carefully placed to maximize operating frequency.
+eduBOS5 is designed around Harvard-based architecture, with separate buses for Instruction and Data Memory. The diagram below illustrates the concept. Please note that this diagram does not show all detail, and esp. not the pipeline registers that are carefully placed to maximize operating frequency.
 
 ![eduBOS5 RISC-V block diagram](/0.doc/cpu_top_view_V5.png)
 ### Processing Stages and Control FSM
-As mentioned the CPU features a configurable pipeline length. All instructions except LOAD type take 2 or 3 cycles to complete. Several configurations in terms of flop placement in between the stages are tested, all make the 2-stage the natural mode of operation for **eduBOS5**, whereas the 3-stage machine can be fully utilized to achieve higher Fmax by specifying timing constraints such as MCP.
+eduBOS5 comes with flexible pipeline length. In its stock configuration, all instructions except LOAD/STORE types take 2 cycles to complete. That's the primary and natural eduBOS5 configuration, carefully tested and tuned for area and performance. 
+
+eduBOS5 can also be configured into a 3-stage machine for higher Fmax, by specifying timing exceptions such as MCP. Fluid internal pipeline stages and control FSM accommodate latencies differencies accross all available combinations of implementation options.
 
 ![eduBOS5 FSM](/0.doc/state_mach.png)
+
 ## Verification strategy
 
 Both dynamic (Functional) and static (Formal) methods are put to use for **eduBOS5** validation, all based on open-source [Verilator](https://github.com/verilator/verilator) and [SymbiYosys](https://github.com/YosysHQ/sby) tool chains. Verilator testbench is written in SystemVerilog, with C++ backend.
