@@ -32,7 +32,7 @@ Stock/basic eduBOS5 is primarily intended for deeply-embedded, bare-metal (aka n
 ### Block diagram
 eduBOS5 is designed around Harvard-based architecture, with separate buses for Instruction and Data Memory. The diagram below illustrates the concept. Please note that this diagram does not show all detail, and esp. not the pipeline registers that are carefully placed to maximize operating frequency.
 
-![eduBOS5 RISC-V block diagram](/0.doc/cpu_top_view_V5.png)
+![eduBOS5 RISC-V block diagram](/0.doc/cpu_top_view_V6.png)
 ### Processing Stages and Control FSM
 eduBOS5 comes with flexible pipeline length. In its stock configuration, all instructions except LOAD/STORE types take 2 cycles to complete. That's the primary and natural eduBOS5 configuration, carefully tested and tuned for area and performance. 
 
