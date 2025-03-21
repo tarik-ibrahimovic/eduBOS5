@@ -58,10 +58,10 @@ For complete perspective, the comparison data also includes desktop class Pentiu
 The baseline development platform are entry-level Gowin LittleBee and low/mid Arora FPGAs. 
 
 Executive Summary performance and utilization metrics are as follows:
-- **CPI = 2.56**
+- **CPI = 2.23**
 - **Area = cca 1000 Gowin LUTs + 400 FFs**
 - **Fmax = 80-100MHz**
-- **DMIPS/MHz = 0.39** (Dhrystone)
+- **DMIPS/MHz = 0.45** (Dhrystone)
   
 ### Performance evaluation and comparison
 
