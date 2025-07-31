@@ -1,0 +1,291 @@
+{
+  "creator": "Yosys 0.36+58 (git sha1 ea7818d31, c++ 11.4.0-1ubuntu1~22.04 -fPIC -Os)",
+  "modules": {
+    "edubos5_rf": {
+      "attributes": {
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "/mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_rf.sv:16.1-41.22"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "rs1_addr": {
+          "direction": "input",
+          "bits": [ 3, 4, 5, 6, 7 ]
+        },
+        "rs2_addr": {
+          "direction": "input",
+          "bits": [ 8, 9, 10, 11, 12 ]
+        },
+        "rd_addr": {
+          "direction": "input",
+          "bits": [ 13, 14, 15, 16, 17 ]
+        },
+        "rf_we": {
+          "direction": "input",
+          "bits": [ 18 ]
+        },
+        "rf_wdat": {
+          "direction": "input",
+          "bits": [ 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50 ]
+        },
+        "rs1": {
+          "direction": "output",
+          "bits": [ 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82 ]
+        },
+        "rs2": {
+          "direction": "output",
+          "bits": [ 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114 ]
+        }
+      },
+      "cells": {
+        "$auto$proc_memwr.cc:45:proc_memwr$24": {
+          "hide_name": 1,
+          "type": "$memwr_v2",
+          "parameters": {
+            "ABITS": "00000000000000000000000000000101",
+            "CLK_ENABLE": "1",
+            "CLK_POLARITY": "1",
+            "MEMID": "\\rf",
+            "PORTID": "00000000000000000000000000000000",
+            "PRIORITY_MASK": "",
+            "WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "src": "/mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_rf.sv:37.8-37.30"
+          },
+          "port_directions": {
+            "ADDR": "input",
+            "CLK": "input",
+            "DATA": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "ADDR": [ 115, 116, 117, 118, 119 ],
+            "CLK": [ 2 ],
+            "DATA": [ 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151 ],
+            "EN": [ 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152 ]
+          }
+        },
+        "$memrd$\\rf$/mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_rf.sv:32$2": {
+          "hide_name": 1,
+          "type": "$memrd",
+          "parameters": {
+            "ABITS": "00000000000000000000000000000101",
+            "CLK_ENABLE": "00000000000000000000000000000000",
+            "CLK_POLARITY": "00000000000000000000000000000000",
+            "MEMID": "\\rf",
+            "TRANSPARENT": "00000000000000000000000000000000",
+            "WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "src": "/mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_rf.sv:32.17-32.25"
+          },
+          "port_directions": {
+            "ADDR": "input",
+            "CLK": "input",
+            "DATA": "output",
+            "EN": "input"
+          },
+          "connections": {
+            "ADDR": [ 3, 4, 5, 6, 7 ],
+            "CLK": [ "x" ],
+            "DATA": [ 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82 ],
+            "EN": [ "x" ]
+          }
+        },
+        "$memrd$\\rf$/mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_rf.sv:33$3": {
+          "hide_name": 1,
+          "type": "$memrd",
+          "parameters": {
+            "ABITS": "00000000000000000000000000000101",
+            "CLK_ENABLE": "00000000000000000000000000000000",
+            "CLK_POLARITY": "00000000000000000000000000000000",
+            "MEMID": "\\rf",
+            "TRANSPARENT": "00000000000000000000000000000000",
+            "WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "src": "/mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_rf.sv:33.17-33.25"
+          },
+          "port_directions": {
+            "ADDR": "input",
+            "CLK": "input",
+            "DATA": "output",
+            "EN": "input"
+          },
+          "connections": {
+            "ADDR": [ 8, 9, 10, 11, 12 ],
+            "CLK": [ "x" ],
+            "DATA": [ 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114 ],
+            "EN": [ "x" ]
+          }
+        },
+        "$procmux$13": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "edubos5_rf.sv:0.0-0.0|/mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_rf.sv:36.5-38.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ "1" ],
+            "S": [ 18 ],
+            "Y": [ 152 ]
+          }
+        },
+        "$procmux$16": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "edubos5_rf.sv:0.0-0.0|/mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_rf.sv:36.5-38.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x" ],
+            "B": [ 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50 ],
+            "S": [ 18 ],
+            "Y": [ 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151 ]
+          }
+        },
+        "$procmux$19": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000101"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "edubos5_rf.sv:0.0-0.0|/mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_rf.sv:36.5-38.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x", "x", "x", "x" ],
+            "B": [ 13, 14, 15, 16, 17 ],
+            "S": [ 18 ],
+            "Y": [ 115, 116, 117, 118, 119 ]
+          }
+        }
+      },
+      "memories": {
+        "rf": {
+          "hide_name": 0,
+          "attributes": {
+            "src": "/mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_rf.sv:30.12-30.14"
+          },
+          "width": 32,
+          "start_offset": 0,
+          "size": 32
+        }
+      },
+      "netnames": {
+        "$0$memwr$\\rf$/mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_rf.sv:37$1_ADDR[4:0]$5": {
+          "hide_name": 1,
+          "bits": [ 115, 116, 117, 118, 119 ],
+          "attributes": {
+            "src": "/mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_rf.sv:35.1-39.19"
+          }
+        },
+        "$0$memwr$\\rf$/mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_rf.sv:37$1_DATA[31:0]$6": {
+          "hide_name": 1,
+          "bits": [ 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151 ],
+          "attributes": {
+            "src": "/mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_rf.sv:35.1-39.19"
+          }
+        },
+        "$0$memwr$\\rf$/mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_rf.sv:37$1_EN[31:0]$7": {
+          "hide_name": 1,
+          "bits": [ 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152 ],
+          "attributes": {
+            "src": "/mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_rf.sv:35.1-39.19"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "/mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_rf.sv:19.17-19.20"
+          }
+        },
+        "rd_addr": {
+          "hide_name": 0,
+          "bits": [ 13, 14, 15, 16, 17 ],
+          "attributes": {
+            "src": "/mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_rf.sv:22.23-22.30"
+          }
+        },
+        "rf_wdat": {
+          "hide_name": 0,
+          "bits": [ 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50 ],
+          "attributes": {
+            "src": "/mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_rf.sv:24.22-24.29",
+            "wiretype": "\\cpu_data_t"
+          }
+        },
+        "rf_we": {
+          "hide_name": 0,
+          "bits": [ 18 ],
+          "attributes": {
+            "src": "/mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_rf.sv:23.17-23.22"
+          }
+        },
+        "rs1": {
+          "hide_name": 0,
+          "bits": [ 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82 ],
+          "attributes": {
+            "src": "/mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_rf.sv:26.23-26.26",
+            "wiretype": "\\cpu_data_t"
+          }
+        },
+        "rs1_addr": {
+          "hide_name": 0,
+          "bits": [ 3, 4, 5, 6, 7 ],
+          "attributes": {
+            "src": "/mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_rf.sv:20.23-20.31"
+          }
+        },
+        "rs2": {
+          "hide_name": 0,
+          "bits": [ 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114 ],
+          "attributes": {
+            "src": "/mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_rf.sv:27.23-27.26",
+            "wiretype": "\\cpu_data_t"
+          }
+        },
+        "rs2_addr": {
+          "hide_name": 0,
+          "bits": [ 8, 9, 10, 11, 12 ],
+          "attributes": {
+            "src": "/mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_rf.sv:21.23-21.31"
+          }
+        }
+      }
+    }
+  }
+}

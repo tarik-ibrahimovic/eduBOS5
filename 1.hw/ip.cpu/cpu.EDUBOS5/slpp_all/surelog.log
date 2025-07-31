@@ -1,0 +1,37 @@
+********************************************
+*  SURELOG SystemVerilog  Compiler/Linter  *
+********************************************
+
+Copyright (c) 2017-2023 Alain Dargelas,
+http://www.apache.org/licenses/LICENSE-2.0
+
+VERSION: 1.82
+BUILT  : Jun  2 2024
+DATE   : 2024-06-03.07:51:44
+COMMAND: -sv edubos5_pkg.sv edubos5_alu.sv -DYOSYS=1 -DSYNTHESIS=1
+
+[INF:CM0023] Creating log file "/mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/slpp_all/surelog.log".
+[INF:CP0300] Compilation...
+[INF:CP0301] /mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_pkg.sv:17:1: Compile package "edubos5_pkg".
+[INF:CP0303] /mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_alu.sv:17:1: Compile module "work@edubos5_alu".
+[INF:CP0302] Compile class "work@mailbox".
+[INF:CP0302] Compile class "work@process".
+[INF:CP0302] Compile class "work@semaphore".
+[INF:EL0526] Design Elaboration...
+[INF:CP0335] /mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_alu.sv:106:4: Compile generate block "work@edubos5_alu.genblk1".
+[NTE:EL0503] /mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_alu.sv:17:1: Top level module "work@edubos5_alu".
+[WRN:EL0500] /mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_alu.sv:106:4: Cannot find a module definition for "work@edubos5_alu.genblk1::Gowin_ALU54plus".
+[WRN:EL0500] /mnt/d/projects/eduSOC/1.hw/ip.cpu/cpu.EDUBOS5/edubos5_alu.sv:117:4: Cannot find a module definition for "work@edubos5_alu.genblk1::Gowin_ALU54minus".
+[NTE:EL0508] Nb Top level modules: 1.
+[NTE:EL0509] Max instance depth: 3.
+[NTE:EL0510] Nb instances: 3.
+[NTE:EL0511] Nb leaf instances: 2.
+[WRN:EL0512] Nb undefined modules: 2.
+[WRN:EL0513] Nb undefined instances: 2.
+[INF:UH0706] Creating UHDM Model...
+[INF:UH0707] Elaborating UHDM...
+[  FATAL] : 0
+[ SYNTAX] : 0
+[  ERROR] : 0
+[WARNING] : 4
+[   NOTE] : 5
